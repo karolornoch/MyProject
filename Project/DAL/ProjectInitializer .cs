@@ -36,6 +36,12 @@ namespace Project.DAL
             {
                 new Book{Title = "Ogniem i mieczem",Author="Henryk Sienkiewicz",Category= categories[0]}
             };
+
+            var readers = new List<Reader>
+            {
+                new Reader {Name="Karol", Surname="Matyszewski" },
+                new Reader {Name="Maciej", Surname="Kot" }
+            };
             books.ForEach(b => context.Books.Add(b));
             context.SaveChanges();
         }
