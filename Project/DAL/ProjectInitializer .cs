@@ -36,13 +36,18 @@ namespace Project.DAL
             {
                 new Book{Title = "Ogniem i mieczem",Author="Henryk Sienkiewicz",Category= categories[0]}
             };
-
+            books.ForEach(b => context.Books.Add(b));
             var readers = new List<Reader>
             {
                 new Reader {Name="Karol", Surname="Matyszewski" },
                 new Reader {Name="Maciej", Surname="Kot" }
             };
-            books.ForEach(b => context.Books.Add(b));
+            readers.ForEach(r => context.Readers.Add(r));
+            var rents = new List<Rent>
+            {
+                new Rent {BookID= 1, ReaderID=1,DateOfRent=new DateTime(2016,05,11), DateOfReturn = new DateTime(2016,05,25)}
+            };
+            rents.ForEach(r => context.Rents.Add(r));
             context.SaveChanges();
         }
     }
