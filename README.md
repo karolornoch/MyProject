@@ -1,3 +1,3 @@
 # MyProject
 
-Próbka koda dla UnifiedFactory.
+Próbka kodu dla UnifiedFactory.
