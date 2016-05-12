@@ -1,0 +1,50 @@
+﻿@model Project.Models.Rent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Books.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Books.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Readers.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Readers.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfRent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfRent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfReturn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfReturn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
