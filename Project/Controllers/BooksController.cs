@@ -16,9 +16,22 @@ namespace Project.Controllers
         private ProjectContext db = new ProjectContext();
 
         // GET: Books
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             var books = db.Books.Include(b => b.Category);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(b => b.Title.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    books = books.OrderByDescending(b => b.Title);
+                    break;
+                default:
+                    break;
+            }
             return View(books.ToList());
         }
 

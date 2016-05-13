@@ -29,18 +29,31 @@ namespace Project.DAL
 
             var categories = new List<Category>
             {
-                new Category {Name="Kategoria 1" , Description="opis1" }
+                new Category {Name="Kategoria 1" , Description="opis1" },
+                new Category {Name="Kategoria 2" , Description="opis2" },
+                new Category {Name="Kategoria 3" , Description="opis3" },
+                new Category {Name="Kategoria 4" , Description="opis4" }
             };
             categories.ForEach(c => context.Categories.Add(c));
             var books = new List<Book>
             {
-                new Book{Title = "Ogniem i mieczem",Author="Henryk Sienkiewicz",Category= categories[0]}
+                new Book{Title = "Ogniem i mieczem",Author="Henryk Sienkiewicz",Category= categories[0]},
+                new Book{Title = "Tytul1",Author="Autor1",Category= categories[0]},
+                new Book{Title = "Tytul2",Author="Autor2",Category= categories[0]},
+                new Book{Title = "Tytul3",Author="Autor3",Category= categories[0]},
+                new Book{Title = "Tytul4",Author="Autor4",Category= categories[0]},
+                new Book{Title = "Tytul5",Author="Autor5",Category= categories[0]},
+                new Book{Title = "Tytul6",Author="Autor6",Category= categories[0]},
+                new Book{Title = "Tytul7",Author="Autor7",Category= categories[0]}
             };
             books.ForEach(b => context.Books.Add(b));
             var readers = new List<Reader>
             {
                 new Reader {Name="Karol", Surname="Matyszewski" },
-                new Reader {Name="Maciej", Surname="Kot" }
+                new Reader {Name="Andrzej", Surname="Nowak" },
+                new Reader {Name="Maciej", Surname="Kot" },
+                new Reader {Name="Robert", Surname="Kowalski" },
+                new Reader {Name="Janusz", Surname="Nowicki" }
             };
             readers.ForEach(r => context.Readers.Add(r));
             var rents = new List<Rent>

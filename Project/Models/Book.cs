@@ -9,6 +9,7 @@ namespace Project.Models
     public class Book
     {
         public int ID { get; set; }
+        public long ISBN { get; set; }
         [Required]
         [Display(Name = "Kategoria")]
         public int CategoryID { get; set; }
