@@ -132,6 +132,9 @@ C:\Users\Karol\Desktop\Project\Project\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Karol\Desktop\Project\Project\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Karol\Desktop\Project\Project\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Karol\Desktop\Project\Project\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Karol\Desktop\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
 C:\Users\Karol\Desktop\Project\Project\obj\Debug\Project.dll
 C:\Users\Karol\Desktop\Project\Project\obj\Debug\Project.pdb
+C:\Users\Karol\Desktop\Project\Project\bin\PagedList.dll
+C:\Users\Karol\Desktop\Project\Project\bin\PagedList.Mvc.dll
+C:\Users\Karol\Desktop\Project\Project\bin\PagedList.xml
+C:\Users\Karol\Desktop\Project\Project\bin\PagedList.Mvc.xml

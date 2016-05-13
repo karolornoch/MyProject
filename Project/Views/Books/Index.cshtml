@@ -1,34 +1,36 @@
-﻿@model IEnumerable<Project.Models.Book>
+﻿@model PagedList.IPagedList<Project.Models.Book>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Ksiażki";
 }
 
-<h2>Index</h2>
+<h2>Ksiazki</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
 {
     <p>
-        Szukaj po tytule: @Html.TextBox("searchString")
+        Szukaj po tytule: @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Szukaj" />
     </p>
 }
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category.Name)
+            Kategoria
         </th>
         <th>
-           @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParm })
+           @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Author)
+           Autor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PublicationDate)
+            Data publikacji
         </th>
         <th></th>
     </tr>
@@ -56,3 +58,9 @@
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+ 

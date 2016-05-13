@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Project.Models;
 using Projekt.DAL;
+using PagedList;
 
 namespace Project.Controllers
 {
@@ -16,9 +17,21 @@ namespace Project.Controllers
         private ProjectContext db = new ProjectContext();
 
         // GET: Books
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString ,int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
             var books = db.Books.Include(b => b.Category);
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -30,9 +43,12 @@ namespace Project.Controllers
                     books = books.OrderByDescending(b => b.Title);
                     break;
                 default:
+                    books = books.OrderBy(b => b.Title);
                     break;
             }
-            return View(books.ToList());
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(books.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Books/Details/5
